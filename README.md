@@ -26,7 +26,8 @@ In order to use Sheet2Slack, you need to create a Slack App and a Spreadsheet Ap
 
 ## Have an Issue?
 
-This is a new way of working, so it's understandable to get stuck along the way! If you happen to find issues, submit a new Issue in our github repo.
+This is a new way of working, so it's understandable to get stuck along the way!
+If you happen to find issues, [please submit a new Issue in our github repo](https://github.com/danphamx/Sheet2Slack/issues).
 
 Yes, We're real people :) 
 

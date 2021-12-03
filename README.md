@@ -5,7 +5,7 @@ Send 1-many Slack messages from your Google Sheets
 
 https://docs.google.com/spreadsheets/d/1FsL_ai3QvzRNAzESgE1Pn_xutRJgaLQdtD8vZlBf1K0/edit#gid=0
 
-## Step 1: Setup Steps for Developer
+## Step 1: Setup Steps for Sheet2Slack Users/Devs
 
 In order to use Sheet2Slack, you need to create a Slack App and a Spreadsheet App which will work together to send messages into Slack
 

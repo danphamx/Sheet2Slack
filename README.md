@@ -13,10 +13,12 @@ In order to use Sheet2Slack, you need to create a Slack App and a Spreadsheet Ap
 2. Give your Slack App permission to join and post to Slack Channels
 3. Request that your Slack App be installed on the workspace you want it to run on 
 > If you are not a Slack Admin, **see Step 2: Setup Steps for Slack Admins**
-4. Make a copy of the Spreadsheet Template. Make sure you only share the spreadsheet with users who need access to the data (e.g. Do not make your spreadsheet public or shareable with anyone with the link)
-5. Add your API Key to the Spreadsheet Template
-6. Customize the "Message Blob" and Channels 
-7. Give your Spreadsheet App permission to talk to third-party services (Slack)
+4. Make a copy of the Spreadsheet Template.
+> 💡 Security Tip: Make sure you only share the spreadsheet with users who need access to the data (e.g. Lock down your spreadsheet's sharing permissions)
+6. Add your API Key to the Spreadsheet Template.
+> The first time you run a Spreadsheet script, Google will ask if youi want to give this Spreadsheet App permission to talk to third-party services (Slack) when requested
+7. Customize the "Message Blob" and Channels for your use-case
+8. Give your Spreadsheet App permission to talk to third-party services (Slack)
 
 ## Step 2: Setup Steps for Slack Admins
 

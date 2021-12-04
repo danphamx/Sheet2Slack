@@ -22,13 +22,13 @@ In order to use Sheet2Slack, you need to create a Slack App and a Spreadsheet Ap
 
 ## Step 2: Setup Steps for Slack Admins
 
-In order for your App Developers to be able to build apps that comminicate with users, you need to add your Developer's Slack Bot to your Workspace and give it permission to access data about your workspace.
+In order for your App Developers to be able to build apps that communicate with users, you need to add your Developer's Slack Bot to your Workspace and give it permission to access data about your workspace.
 
 1. Add your developer to the Workspace
 2. The developer will request adding their Slack App to the Workspace
 > Be sure to review what permissions you are granting to the App before approving it. You can advise on other ways to access the data requested if you feel more comfortable that way.
 3. Approve their Slack App from https://api.slack.com/apps
-4. If new permissions are requested, then you will need to re-approve any new App Permissions (App Scopes) every wtime they add new scopes
+4. If new permissions are requested, then you will need to re-approve any new App Permissions (App Scopes) every time they add new scopes
 
 ## Have an Issue?
 

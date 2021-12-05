@@ -3,6 +3,7 @@ var documentProperties = PropertiesService.getDocumentProperties();
 var scriptProperties = PropertiesService.getScriptProperties();
 var userProperties = PropertiesService.getUserProperties();
 
+// Stores you API key in userProperties so that others can not use it and it won't be visible to others in-code
 function setKey(){
   var API_KEY = "api.key";
   var ui = SpreadsheetApp.getUi();

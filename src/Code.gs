@@ -1,3 +1,6 @@
+/* SLACK API ENDPOINTS */
+POST_MESSAGE_ENDPOINT = 'https://slack.com/api/chat.postMessage'
+
 /**
  * Sends a Slack Message using the User's Access or Bot Token
  *
@@ -8,29 +11,83 @@
  * @return {String} the result of the API response
  * @customfunction
  */  
-function sendSlackMessage(channel_id,message_blob, unfurl_links, unfurl_media){
+function sendSlackMessage(CHANNEL_ID,MESSAGE_BLOB, BOOLEAN_UNFURL_LINKS, BOOLEAN_UNFURL_MEDIA){
+  var API_KEY = getAPIKey();
   var channel = CHANNEL_ID;
-  var ACCESS_TOKEN = API_KEY;
   var message = MESSAGE_BLOB;
+  var unfurl_links = BOOLEAN_UNFURL_LINKS;
   var unfurl_media = BOOLEAN_UNFURL_MEDIA;
-  var payload = {token:ACCESS_TOKEN, channel:channel, text:message, unfurl_links:false, unfurl_media:false  };
+  var payload = {token:API_KEY, channel:channel, text:message, unfurl_links:false, unfurl_media:false  };
   var response = UrlFetchApp.fetch(POST_MESSAGE_ENDPOINT, {method: 'post', payload:payload});
   return response;
 }
+
 
 
 /**
  * SANDBOX: Loops through the Launchpad Google Sheet and sends 1-many Slack Messages
  */  
 function sendLaunchpadSANDBOX(){
-  
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Launchpad");
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    //Enabled	Test Channel ID	LIVE Channel ID	Message Blob	Unfurl Links?	Unfurl Media?	Status	Link to Message	Last Sent
+    var enabled = data[i][0];
+    var testChannelId = data[i][1];
+    var liveChannelId = data[i][2];
+    var messageBlob = data[i][3];
+    var unfurlLinksBoolean = data[i][4];
+    var unfurlMediaBoolean = data[i][5];
+    var status = data[i][6];
+    var linkToMsg = data[i][7];
+    var lastSent = data[i][8];
+    var unusedCol1 = data[i][9];
+    var unUsedCol2 = data[i][10];
+    Logger.log(enabled);
+    Logger.log(testChannelId);
+    Logger.log(messageBlob);
+
+    /* If enabled = TRUE, then try to send the Message. Make sure you've added the Slack Bot to the channel */
+    if (enabled){
+      var response = sendSlackMessage(testChannelId,messageBlob,unfurlLinksBoolean,unfurlMediaBoolean);
+      Logger.log(response)
+    } else {
+      //do nothing
+    }
+  }
 }
 
 /**
  * PRODUCTION: Loops through the Launchpad Google Sheet and sends 1-many Slack Messages
  */  
 function sendLaunchpadPROD(){
-  
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Launchpad");
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    //Enabled	Test Channel ID	LIVE Channel ID	Message Blob	Unfurl Links?	Unfurl Media?	Status	Link to Message	Last Sent
+    var enabled = data[i][0];
+    var testChannelId = data[i][1];
+    var liveChannelId = data[i][2];
+    var messageBlob = data[i][3];
+    var unfurlLinksBoolean = data[i][4];
+    var unfurlMediaBoolean = data[i][5];
+    var status = data[i][6];
+    var linkToMsg = data[i][7];
+    var lastSent = data[i][8];
+    var unusedCol1 = data[i][9];
+    var unUsedCol2 = data[i][10];
+    Logger.log(enabled);
+    Logger.log(testChannelId);
+    Logger.log(messageBlob);
+
+    /* If enabled = TRUE, then try to send the Message. Make sure you've added the Slack Bot to the channel */
+    if (enabled){
+      var response = sendSlackMessage(liveChannelId,messageBlob,unfurlLinksBoolean,unfurlMediaBoolean);
+      Logger.log(response)
+    } else {
+      //do nothing
+    }
+  }
 }
 
 /**
@@ -73,16 +130,3 @@ function initializeLaunchpad(){
   sheet.setColumnWidth(8, 150);
 
 }
-
-
-
-/*
-Custom functions don't have a concept of required and optional fields, but you can emulate that behavior using logic like this:
-
-function foo(arg1, opt_arg2) {
-  if (arg1 == null) {
-    throw 'arg1 required';
-  }
-  return 'foo';
-}
-*/

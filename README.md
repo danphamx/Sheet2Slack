@@ -7,7 +7,7 @@ https://docs.google.com/spreadsheets/d/1FsL_ai3QvzRNAzESgE1Pn_xutRJgaLQdtD8vZlBf
 
 ## Step 1: Setup Steps for Sheet2Slack Users/Devs
 
-In order to use Sheet2Slack, you need to create a Slack App and a Spreadsheet App which will work together to send messages into Slack
+In order to use Sheet2Slack, you need to create a Slack App and a a copy of the [template spreadsheet](https://docs.google.com/spreadsheets/d/1FsL_ai3QvzRNAzESgE1Pn_xutRJgaLQdtD8vZlBf1K0/edit#gid=0) which will work together to send messages into Slack.
 
 1. Create a Slack App at https://api.slack.com
 2. Give your Slack App permission to join and post to Slack Channels

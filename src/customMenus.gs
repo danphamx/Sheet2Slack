@@ -1,4 +1,5 @@
 function onOpen(){
+  var ui = SpreadsheetApp.getUi();
   ui.createMenu('🪄 Sheet2Slack')
     .addItem('🧪 Send Slack Messages (Test Version)', 'sendLaunchpadSANDBOX')
     .addItem('🚀 Send Slack Messages (Live Version)', 'sendLaunchpadPROD')

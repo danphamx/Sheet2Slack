@@ -22,6 +22,9 @@ function sendSlackMessage(CHANNEL_ID,MESSAGE_BLOB, BOOLEAN_UNFURL_LINKS, BOOLEAN
   return response;
 }
 
+function showPrompt(){
+  //do nothing
+}
 
 
 /**
@@ -43,12 +46,12 @@ function sendLaunchpadSANDBOX(){
     var lastSent = data[i][8];
     var unusedCol1 = data[i][9];
     var unUsedCol2 = data[i][10];
-    Logger.log(enabled);
-    Logger.log(testChannelId);
-    Logger.log(messageBlob);
 
     /* If enabled = TRUE, then try to send the Message. Make sure you've added the Slack Bot to the channel */
-    if (enabled){
+    if (enabled==true){
+      Logger.log(enabled);
+      Logger.log(testChannelId);
+      Logger.log(messageBlob);
       var response = sendSlackMessage(testChannelId,messageBlob,unfurlLinksBoolean,unfurlMediaBoolean);
       Logger.log(response)
     } else {
@@ -63,8 +66,7 @@ function sendLaunchpadSANDBOX(){
 function sendLaunchpadPROD(){
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Launchpad");
   var data = sheet.getDataRange().getValues();
-  for (var i = 1; i < data.length; i++) {
-    //Enabled	Test Channel ID	LIVE Channel ID	Message Blob	Unfurl Links?	Unfurl Media?	Status	Link to Message	Last Sent
+  for (var i = 0; i < data.length; i++) {
     var enabled = data[i][0];
     var testChannelId = data[i][1];
     var liveChannelId = data[i][2];
@@ -76,12 +78,12 @@ function sendLaunchpadPROD(){
     var lastSent = data[i][8];
     var unusedCol1 = data[i][9];
     var unUsedCol2 = data[i][10];
-    Logger.log(enabled);
-    Logger.log(testChannelId);
-    Logger.log(messageBlob);
-
+    
     /* If enabled = TRUE, then try to send the Message. Make sure you've added the Slack Bot to the channel */
-    if (enabled){
+    if (enabled==true){
+      Logger.log(enabled);
+      Logger.log(liveChannelId);
+      Logger.log(messageBlob);
       var response = sendSlackMessage(liveChannelId,messageBlob,unfurlLinksBoolean,unfurlMediaBoolean);
       Logger.log(response)
     } else {
